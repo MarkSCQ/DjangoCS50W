@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // By default, load the inbox
   load_mailbox('inbox');
 });
+// Author:   https://github.com/MarkSCQ/
 
 
 function compose_mail() {
