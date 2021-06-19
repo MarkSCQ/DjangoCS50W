@@ -12,3 +12,13 @@ This course mainly uses Django and Javascript to make projects. Project Final us
   <li><b>Network:</b> Social media</li>
   <li><b>Final:</b> Self Evaluation</li>
 </ul>
+
+
+Environment and Packages:
+
+
+
+<ul>
+  <li><b>Django 3.1.3</b></li>
+  <li><b>Echartsjs 5.1.2</b></li>
+</ul>
