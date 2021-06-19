@@ -1,5 +1,9 @@
 # DjangoCS50W
 
+This course mainly uses Django and Javascript to make projects. Project Final uses [Echartjs](https://echarts.apache.org/en/index.html). 
+
+
+
 <ul>
   <li><b>Fake Google:</b> Google Page using HTML and CSS</li>
   <li><b>Wiki:</b> Mimic Wikipedia</li>
