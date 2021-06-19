@@ -1,0 +1,133 @@
+{% extends "auctions/layout.html" %}
+{% load static %}
+{% block content %}
+<!-- <a href="{% url 'categories' %}">cate</a> -->
+
+<!-- this block is used to get the information from backend that render the active auctions -->
+<!-- <h1 name="activelist">{{activelist}}</h1>
+<h1 name="activelist">{{activelist.auction_state}}</h1> -->
+
+<!-- {% if tag %}
+{{tag}}
+{% endif %} -->
+{% if signal%}
+{% if signal == 1 %}
+<div class="container">
+    <div class="content">
+        <h3>Active Auction Details</h3>
+    </div>
+
+
+    <div class="talbe-container">
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth
+">
+            <tr>
+                <th style="width:200px">Auction Item</th>
+                <th>{{activelist.0.auction_item}}</th>
+            </tr>
+            <tr>
+                <th>Auction State</th>
+                <th>{{activelist.0.get_auction_state_display}}</th>
+            </tr>
+            <tr>
+                <th>Bid Amount</th>
+                <th>{{activelist.0.get_num_bid_info}}</th>
+            </tr>
+            <tr>
+                <th>Category</th>
+                <th>{{activelist.1.item_category}}</th>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <th>{{activelist.1.item_description}}</th>
+            </tr>
+            <tr>
+                <th>Origin Price</th>
+                <th>{{activelist.1.item_origin_price}}</th>
+            </tr>
+            <tr>
+                <th>Current Max</th>
+                <th>{{activelist.2}}</th>
+            </tr>
+            <tr>
+                <th>Owner</th>
+                <th>{{activelist.1.item_publisher}}</th>
+            </tr>
+            <tr>
+                <th>Image Description</th>
+                <th><img style=" width: 500px" src=" {{activelist.1.item_img.url}}"></th>
+            </tr>
+            <tr>
+                <th>Bid Enter</th>
+                <th>
+                    <form action="{% url 'bid_with_detail' %}" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="itemname" value="{{activelist.0.auction_item.item_name}}">
+                        {% ifequal activelist.0.get_auction_state_display "Available" %}
+                        <input type="submit" name="BID" value="BID">
+                        {% endifequal %}
+                        {% ifnotequal activelist.0.get_auction_state_display "Available" %}
+                        <input type="submit" name="BID" value="BID" style="pointer-events: none;">
+                        <b>The new owner {{activelist.1.item_publisher}} has got this, listing closed</b>
+                        {% endifnotequal %}
+                    </form>
+                </th>
+            </tr>
+            <tr>
+                <th>Bid Enter</th>
+                <th>
+                    <form action="{% url 'addWatchinglist_inlisting' %}" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="itemname" value="{{activelist.0.auction_item.item_name}}">
+                        {% ifequal watchflag "currentnotwatching" %}
+                        <input type="submit" name="watchit" value="To Watch It">
+                        {% endifequal %}
+                        {% ifequal watchflag "currentwatching" %}
+                        <input type="submit" name="watchit" value="Stop Watch It">
+                        {% endifequal %}
+
+                    </form>
+
+                </th>
+            </tr>
+    </div>
+    </table>
+    <table class="table is-striped">
+        <tr>
+            <th style="width: 100px;">User</th>
+            <th style="width: 100px;">Comment</th>
+        </tr>
+        {%for key,values in comments.items%}
+        {%if key == activelist.0.auction_id %}
+        {%for i in values%}
+        <tr>
+            <th style="width: 100px;">{{i.comment_user}}</th>
+            <th style="width: 100px;">{{i.comment_content}}</th>
+        </tr>
+        {%endfor%}
+        {%endif%}
+        {%endfor%}
+    </table>
+    <div>
+        <form action="{% url 'submitcomments' %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="auction_id" value="{{activelist.0.auction_id}}">
+            <textarea name="item_comment" placeholder="Comment here" style="width: 400px;"></textarea>
+            <input type="submit" name="BID" value="Comment">
+        </form>
+    </div>
+    <hr>
+
+
+</div>
+
+<!-- <h1>LEN {{len}}</h1> -->
+{% else %}
+<h3>WP</h3>
+{% endif%}
+{%else%}
+<h3>not exist</h3>
+{% endif%}
+
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "auctions/layout.html" %}
+
+
+
+{% block content %}
+{% if form1 and form2%}
+<div class="columns is-mobile">
+    <div class="column is-half is-offset-one-quarter">
+        <h2 class="title is-size3">Create New Auction</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form1.as_p }}
+            ----
+            {{ form2.as_p }}
+            <button type="submit" class="button is-primary">
+                Submit
+            </button>
+        </form>
+    </div>
+</div>
+{% endif %}
+{% if alert_flag %}
+<script>alert("Create successfully!")</script>
+{% endif %}
+
+{% if same_flag %}
+<script> alert("Auction Item and Bid item should be the same!") </script>
+{% endif %}
+
+{% if exist_flag %}
+<script>alert("Auction Item exists!")</script>
+{% endif %}
+
+
+{% endblock %}

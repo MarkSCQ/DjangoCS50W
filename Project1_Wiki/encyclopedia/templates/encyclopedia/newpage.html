@@ -1,0 +1,23 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block body %}
+<h1>Create New Entry</h1>
+
+<form action="{% url 'wiki:saveresult' %}" method="POST">
+    {% csrf_token %}
+    <table id="newpageall">
+        <tr >
+            <th id="newpage_col1"> Title </th>
+            <th><textarea name="Title" placeholder="title" style="width: 500px;height:30px"></textarea></th>
+        </tr>
+        <tr >
+            <th id="newpage_col1">Content </th>
+            <th><textarea name="Content" placeholder="Content" style="width: 500px;height:150px"></textarea></th>
+        </tr>
+    </table>
+    <br>
+    <div style="text-align: center;"> <input type="submit" value="Submit"></div>
+</form>
+
+<a href="http://127.0.0.1:8000/" style="position: absolute;bottom: 5%;">Back</a>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "auctions/layout.html" %}
+
+
+
+{% block content %}
+{% if alert_flag %}
+<script>alert("Create Successfully")</script>
+{% endif %}
+
+{% if form_flag %}
+<div class="columns is-mobile">
+    <div class="column is-half is-offset-one-quarter">
+        <h2 class="title is-size3">Create New Item</h2>
+        <form method="post" enctype="multipart/form-data">
+            <input type='hidden' />
+            {%csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="button is-primary">
+                Submit
+            </button>
+        </form>
+    </div>
+</div>
+
+{% endif %}
+
+
+
+
+{% endblock %}

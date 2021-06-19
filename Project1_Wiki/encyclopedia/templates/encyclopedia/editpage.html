@@ -1,0 +1,26 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block body %}
+<h1>Edit Entry</h1>
+
+<form action="{% url 'wiki:processedit' %}" method="POST">
+    {% csrf_token %}
+    <table id="randompagetable">
+        <tr id="randompagetable_rowA">
+            <th id="randompagetable_colA">Title  </th>
+            <th id="randompagetable_colB">{{entryname}}</th>
+        </tr>
+        <tr id="randompagetable">
+            <th id="randompagetable_colA">Content </th>
+            <th id="randompagetable_colB"><textarea name="Content" style="width: 500px;height:150px;border: none;">{{content}}</textarea></th>
+        </tr>
+    </table>
+    <br>
+    <input type="hidden" name="entryname"value="{{entryname}}">
+    <div style="text-align: center;">
+        <input type="submit" value="Submit">
+    </div>
+</form>
+
+<a href="http://127.0.0.1:8000/" style="position: absolute;bottom: 5%;">Back</a>
+{% endblock %}

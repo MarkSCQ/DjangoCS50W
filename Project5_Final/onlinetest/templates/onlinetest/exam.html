@@ -1,0 +1,87 @@
+{% extends "onlinetest/layout.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="form-check" style="width: 95%;margin: auto;">
+
+
+    <h1>
+        <b>Test: {{testname}}</b>
+    </h1>
+    <hr>
+
+    <div style=" display: inline-block; 
+        width: 100%;">
+        <div style="float: left;">
+            <h3>
+                <b>
+                    Login as {{current_user}}
+                </b>
+            </h3>
+        </div>
+        <div style="float: right;">
+            <h4>
+                <b>
+                    Time Counter: <label id="minutes">00</label>: <label id="seconds">00</label>
+                </b>
+            </h4>
+        </div>
+    </div>
+
+
+    <br>
+</div>
+
+<div class="form-check" style="width: 90%;margin: auto;">
+
+    <form action="{% url 'submitans'%}" method="POST">
+        {%csrf_token%}
+        {% for key, value in anss.items %}
+        <table class="table table-borderless">
+            <tr>
+                <td>
+                    <h4><b>
+                            <div class="text-info">Q{{forloop.counter}}. {{ key }}</div>
+                        </b></h4>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table class="table table-borderless">
+                        {% for key2,value2 in value.items %}
+                        <tr>
+                            <td style="width: 5px;">
+                            </td>
+                            <td>
+                                <input type="radio" required name="{{key}}" value="{{key}}-{{key2}}"
+                                    class="form-check-input">
+                                <h5>
+                                    <div class="text-primary">{{ key2 }}. {{value2}}</div>
+                                </h5>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <hr>
+        {% endfor %}
+        <input type="hidden" id="timelast" name="timelast" value="">
+        <input type="hidden" id="timelimit" name="timelimit" value="{{timelimit}}">
+        <input type="hidden" name="subject" value="{{subject}}">
+        <input type="hidden" name="current_user" value="{{current_user}}">
+        <input type="hidden" name="testid" value="{{testid}}">
+        <!-- <input type="submit" value="Submit"> -->
+        <button class="btn btn-primary" type="submit">Submit form</button>
+
+    </form>
+
+</div>
+<br>
+
+<script src="{% static 'onlinetest/timecounter.js' %}" type="text/javascript"></script>
+
+{% endblock %}

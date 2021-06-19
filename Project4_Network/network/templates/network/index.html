@@ -1,0 +1,125 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+
+<!-- 
+        Display the number of followers the user has, as well as the number of people that the user follows.
+        Display all of the posts for that user, in reverse chronological order.
+        For any other user who is signed in, 
+            this page should also display a “Follow” or “Unfollow” button 
+                    that will let the current user toggle whether or not they are following this user’s posts. 
+        Note that this only applies to any “other” user: a user should not be able to follow themselves.
+    -->
+
+<!-- areas to make posts -->
+<!-- <div id="cnm">
+    rinima
+</div> -->
+
+<div id="make_post" style="position: absolute;left:100px;">
+    <form id="postToStore">
+        <table>
+            <tr>
+                <td colspan="2">
+                    <div id="POST_textarea" class="form-group">
+                        <textarea id="POST_content" placeholder="Fakebook"
+                            style="width: 600px;height: 100px;"></textarea>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: left;">
+                    <div id="POST_timearea">
+                        <P id="currenttime"></P>
+                        <script>
+                            var today = new Date();
+                            var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+                            var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                            var dateTime = date + ' ' + time;
+                            document.getElementById("currenttime").innerHTML = dateTime;
+                        </script>
+                    </div>
+                </td>
+                <td style="text-align: right;">
+                    <div id="POST_btnarea">
+                        <input type="submit" value="POST THIS SHIT">
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div id="testdiv">
+</div>
+
+<div id="profile_display" style="position: absolute;left:100px;">
+</div>
+<!-- 
+    <div id="user_name">
+    </div>
+    <div id="user_posts">
+    </div>
+    <div id="user_following">
+    </div>
+    <div id="user_followers">
+    </div> 
+-->
+<!-- area to display posts -->
+<div id="posts_display" style="position: absolute;left: 100px;">
+</div>
+
+<div id="following_display">
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div id="modify_post" style="display: none;">
+    <form id="modify_post_form">
+        <textarea id="modify_post_content" style="width: 600px; height:100px"></textarea>
+        <input type="hidden" id="modify_post_ID">
+        <input type="submit" id="modify_post_submit" value="POST!">
+    </form>
+</div>
+
+{% if test %}
+{{test}}
+{% endif %}
+<!-- display profiles in this section -->
+
+<script src="{% static 'network/inbox.js' %}" type="text/javascript"></script>
+
+{% endblock %}
+
+<!-- {% block script %}
+{% endblock %} -->

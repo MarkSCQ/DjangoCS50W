@@ -1,0 +1,166 @@
+{% extends "onlinetest/layout.html" %}
+{% load static %}
+
+{% block content %}
+
+
+<div style="width: 90%;margin: auto;">
+    <h1>
+        <b> Welcome to online self evaluation</b>
+    </h1>
+    <hr>
+
+    <br>
+    <h3>
+        <b>Login as {{message}}</b>
+    </h3>
+
+    <br>
+
+    <br>
+    <h3>
+        <b>
+            <a>INFORMATION TODAY</a>
+        </b>
+    </h3>
+    <div name="Todos">
+        <div class="desktoptable">
+            <table class="table is-desktop" style="width: 900px;">
+                <tr class="table-primary">
+                    <th>Test Name</th>
+                    <th>Description</th>
+                    <th>Subject</th>
+                    <th>Open Time</th>
+                    <th>Time Limit</th>
+                </tr>
+                {% for test in todo_test_details %}
+                <tr class="table-success">
+                    {%for detail in test%}
+                    <td>
+                        {{detail}}
+                    </td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+
+        <div class="mobletable">
+            <table class="table is-mobile" style="width:auto;">
+
+                {% for test in todo_test_details %}
+                <tr>
+                    <td class="table-primary" style="text-align: center">
+                        <b>{{nameTag.0}}</b>
+                    </td>
+                    <td class="table-success" style="text-align: center">
+                        <b>{{test.0}}</b>
+                    </td>
+                <tr>
+                    <td class="table-primary" style="text-align: center">
+                        <b>{{nameTag.1}}</b>
+                    </td>
+                    <td class="table-success" style="text-align: center">
+                        <b>{{test.1}}</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="table-primary" style="text-align: center">
+                        <b>{{nameTag.2}}</b>
+                    </td>
+                    <td class="table-success" style="text-align: center">
+                        <b>{{test.2}}</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="table-primary" style="text-align: center">
+                        <b>{{nameTag.3}}</b>
+                    </td>
+                    <td class="table-success" style="text-align: center">
+                        <b>{{test.3}}</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="table-primary" style="text-align: center">
+                        <b>{{nameTag.4}}</b>
+                    </td>
+                    <td class="table-success" style="text-align: center">
+                        <b>{{test.4}}</b>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+
+        </div>
+
+
+    </div>
+
+
+
+    <br>
+
+    <div>
+        <h4><b><a href="{% url 'TestList' message %}">Test</a></b></h4>
+    </div>
+    <button type="button" class="btn btn-info collapsible">More Details</button>
+    <div class="content" style="display: none;">
+        <p><b>You can do tests in Test section. This section is functioned as self evaluation.</b></p>
+    </div>
+
+    <br> <br>
+
+
+    <div>
+        <h4><b><a href="{% url 'ReviewTestsList' message  %}">Review Tests</a></b></h4>
+
+    </div>
+    <button type="button" class="btn btn-info collapsible">More Details</button>
+    <div class="content" style="display: none;">
+        <p><b>You can do Review your Test results in this section.</b></p>
+    </div>
+    <br>
+    <br>
+
+
+    <div>
+        <h4>
+            <b>
+                <a href="{% url 'GenerateNewTest' message=message %}">
+                    Generate New Test
+                </a>
+            </b>
+        </h4>
+    </div>
+
+    <button type="button" class="btn btn-info collapsible">More Details</button>
+    <div class="content" style="display: none;">
+        <p><b>This section will generate new test.</b></p>
+    </div>
+    <br>
+    <br>
+
+
+    <div>
+        <h4><b><a href="{% url 'AnayReco' message=message %}">Analysis</a></b></h4>
+    </div>
+
+    <button type="button" class="btn btn-info collapsible">More Details</button>
+    <div class="content" style="display: none;">
+        <p><b>This section will provides.</b></p>
+    </div>
+    <br>
+
+</div>
+<br>
+
+
+<br>
+<br>
+<br>
+
+
+<script src="{% static 'onlinetest/student.js' %}" type="text/javascript"></script>
+
+{% endblock %}

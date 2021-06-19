@@ -1,0 +1,248 @@
+{% extends "onlinetest/layout.html" %}
+{% load static %}
+
+{% block content %}
+<div style="width: 90%;margin: auto;">
+
+
+    <!-- <div id="main" style="width: 600px;height:400px;"></div> -->
+    <h1>Analysis</h1>
+    <a href="{% url 'BackToMain' message%}">Back to Main</a> <br>
+
+    <div name="WrongCategoryAnalysis" style=" width: 50%">
+        <h2>Wrong Category Analysis</h2>
+        {% for keyval,values in sub_data.items%}
+        <h4>Subject: {{keyval}}</h4>
+        <div id="{{keyval}}" style="width: 800px;height:400px;" class="plots"></div>
+        <div class="datatable" style="width: 800px;">
+            <table name="{{keyval}}" class="table table-primary" style="text-align:center;">
+                <tr>
+                    <td><b>Error Type</b></td>
+                    {%for cate in values.0%}
+                    <td class="cate-{{keyval}}"><b>{{cate}}</b></td>
+                    {%endfor%}
+                </tr>
+                <tr>
+                    <td><b>Wrong Question</b></td>
+                    {%for val in values.1%}
+                    <td class="val-{{keyval}}">{{val}}</td>
+                    {%endfor%}
+                </tr>
+            </table>
+        </div>
+        <hr>
+
+        <script type="text/javascript">
+
+            wronganalysis()
+
+            function wronganalysis() {
+                var id = "{{keyval}}"
+                var myChart = echarts.init(document.getElementById(id));
+
+                var td_char = "cate-{{keyval}}"
+                var tds_char = document.getElementsByClassName(td_char)
+                var td_num = "val-{{keyval}}"
+                var tds_num = document.getElementsByClassName(td_num)
+                console.log(tds_char)
+                console.log(tds_num)
+
+                var catelist_cate = []
+                for (i = 0; i < tds_char.length; i++) {
+                    catelist_cate.push(tds_char[i].textContent)
+                };
+                console.log(catelist_cate)
+                var catelist_val = []
+                for (i = 0; i < tds_num.length; i++) {
+                    catelist_val.push(parseInt(tds_num[i].textContent))
+                };
+                console.log(catelist_val)
+                // console.log(yval)
+
+                // specify chart configuration item and data
+                var option = {
+                    title: {
+                        text: 'Category Wrong Answer Analysis'
+                    },
+                    tooltip: {},
+                    legend: {
+                        padding: 50,
+                        orient: 'horizontal',
+                        x: 'right',
+                        y: 'top',
+
+                        data: ['Frequency']
+                    },
+                    xAxis: {
+                        data: catelist_cate
+                    },
+                    yAxis: {},
+                    series: [{
+                        name: 'Frequency',
+                        type: 'bar',
+                        barWidth: 40,
+                        data: catelist_val
+                    }]
+                };
+                // use configuration item and data specified to show chart
+                myChart.setOption(option);
+            }
+
+
+        </script>
+        {%endfor%}
+    </div>
+
+    <div name="OverallGrades" style=" width: 50%;">
+
+        <h2>Average Grades</h2>
+        <div>
+            <h4>My Subject Average Grades</h4>
+            <div id="mysbavg" style="width: 800px;height:400px;"></div>
+
+            <div style="width: 800px;">
+                <table class="table table-primary">
+                    <tr>
+                        <td><b>Subject</b></td>
+                        <td><b>Grades</b></td>
+                    </tr>
+                    {%for k,v in ag_p.items%}
+                    <tr>
+                        <td class="myavg_k"><b>{{k}}</b></td>
+                        <td class="myavg_v">{{v}}</td>
+                    </tr>
+                    {%endfor%}
+                </table>
+
+                <script type="text/javascript">
+                    average()
+                    function average() {
+                        var myavg_k = document.getElementsByClassName("myavg_k")
+                        var myavg_v = document.getElementsByClassName("myavg_v")
+
+                        var myavg_k_list = []
+                        var myavg_v_list = []
+
+                        for (var i = 0; i < myavg_k.length; i++) {
+                            myavg_k_list.push(myavg_k[i].textContent)
+                        };
+                        for (var i = 0; i < myavg_k.length; i++) {
+                            myavg_v_list.push(parseFloat(myavg_v[i].textContent))
+                        };
+
+                        var myChart = echarts.init(document.getElementById("mysbavg"));
+                        var option = {
+                            title: {
+                                text: 'My Subjects Average Grades'
+                            },
+                            tooltip: {},
+                            legend: {
+                                padding: 50,
+                                orient: 'horizontal',
+                                x: 'right',
+                                y: 'top',
+
+                                data: ['Frequency']
+                            },
+                            xAxis: {
+                                data: myavg_k_list
+                            },
+                            yAxis: {},
+                            series: [{
+                                name: 'Frequency',
+                                type: 'bar',
+                                barWidth: 40,
+                                data: myavg_v_list
+                            }]
+                        };
+                        // use configuration item and data specified to show chart
+                        myChart.setOption(option);
+
+                    }
+                </script>
+            </div>
+
+            <h4>
+                Subject Average Grades of All People
+            </h4>
+
+            <div id="agall" style="width: 800px;height:400px;" class="plots"></div>
+            <div style="width: 800px;">
+                <table class="table table-primary">
+                    <tr>
+                        <td><b>Subject</b></td>
+                        <td><b>Grades</b></td>
+                    </tr>
+                    {%for k,v in ag_a.items%}
+                    <tr>
+                        <td class="sagap_k"><b>{{k}}</b></td>
+                        <td class="sagap_v">{{v}}</td>
+                    </tr>
+                    {%endfor%}
+                </table>
+                <script type="text/javascript">
+                    average()
+                    function average() {
+                        var myavg_k = document.getElementsByClassName("sagap_k")
+                        var myavg_v = document.getElementsByClassName("sagap_v")
+
+                        var myavg_k_list = []
+                        var myavg_v_list = []
+
+                        for (var i = 0; i < myavg_k.length; i++) {
+                            myavg_k_list.push(myavg_k[i].textContent)
+                        };
+                        for (var i = 0; i < myavg_k.length; i++) {
+                            myavg_v_list.push(parseFloat(myavg_v[i].textContent))
+                        };
+                        console.log("---------------------")
+                        console.log(myavg_k_list)
+                        console.log(myavg_v_list)
+                        console.log("---------------------")
+
+                        var myChart = echarts.init(document.getElementById("agall"));
+                        var option = {
+                            title: {
+                                text: 'All Subjects Average Grades (All Users)'
+                            },
+                            tooltip: {},
+                            legend: {
+                                padding: 50,
+                                orient: 'horizontal',
+                                x: 'right',
+                                y: 'top',
+
+                                data: ['Frequency']
+                            },
+                            xAxis: {
+                                data: myavg_k_list
+                            },
+                            yAxis: {},
+                            series: [{
+                                name: 'Frequency',
+                                type: 'bar',
+                                barWidth: 40,
+                                data: myavg_v_list
+                            }]
+                        };
+                        // use configuration item and data specified to show chart
+                        myChart.setOption(option);
+
+                    }
+                </script>
+            </div>
+
+        </div>
+
+    </div>
+    <br>
+    <br>
+    <br>
+</div>
+
+
+
+
+
+
+{% endblock %}

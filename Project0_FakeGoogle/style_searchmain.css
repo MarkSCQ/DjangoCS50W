@@ -1,0 +1,122 @@
+#arange {}
+
+#about_store {
+    float: left;
+}
+
+#image_tag {
+    float: right;
+}
+
+#table_content {
+    text-align: center;
+}
+
+#google_logo {
+    padding-top: 109px;
+    height: 92px;
+    width: 272px;
+}
+
+#input_box {
+    border-radius: 15px;
+    outline: none;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 0, 0, .87);
+    word-wrap: break-word;
+    width: 487px;
+    height: 40px;
+    margin-top: -37px;
+    font-size: 16px;
+    font: 16px arial, sans-serif;
+    line-height: 34px;
+    height: 34px !important;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: -internal-light-dark(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: textfield;
+    background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    font: 400 13.3333px Arial;
+    padding: 1px 2px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(195, 195, 195));
+    border-image: initial;
+
+    background: #fff;
+    display: flex;
+    border: 1px solid #dfe1e5;
+    box-shadow: none;
+    border-radius: 24px;
+    z-index: 3;
+    height: 44px;
+    margin: 0 auto;
+    width: 482px;
+}
+
+#google_submit,
+#gbqfbb {
+    background-image: -webkit-linear-gradient(top, #f5f5f5, #f1f1f1);
+    background-color: #f2f2f2;
+    border: 1px solid #5f5d5d;
+    border-radius: 4px;
+    color: #5F6368;
+    font-family: arial, sans-serif;
+    font-size: 14px;
+    margin: 11px 4px;
+    padding: 0 16px;
+    line-height: 27px;
+    height: 36px;
+    min-width: 54px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+#below_tags {
+    bottom: 0;
+    font-size: 10pt;
+    height: 35px;
+    position: fixed;
+    z-index: 104;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    text-decoration: none;
+    white-space: nowrap;
+
+
+    background: #f2f2f2;
+    line-height: 40px;
+    min-width: 980px;
+    border-top: 1px solid #e4e4e4;
+}
+
+#below_tag_left {
+    float: left;
+}
+
+#below_tag_right {
+    float: right;
+}
+
+.Fx4vi {
+    padding-left: 27px;
+    margin: 0 !important;
+    font-size: 14px;
+    white-space: nowrap;
+    font-family: arial, sans-serif;
+}

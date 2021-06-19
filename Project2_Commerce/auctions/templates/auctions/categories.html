@@ -1,0 +1,30 @@
+{% extends "auctions/layout.html" %}
+
+{% block content %}
+
+
+<div class='container'>
+    <div>
+        <h2 class='title is-3'>Category List</h2>
+    </div>
+    <div class='columns is-mobile is-centered'>
+        <div class='column is-11'>
+            <div class='list'>
+                <ul>
+                    {% for one in categorylist %}
+                    <div class='list-item'>
+                        <li>
+                            <h2 class='title is-4'><a
+                                    href="{% url 'categorysub' one.category_item %}">{{one.category_item}}</a></h2>
+                        </li>
+                        <br>
+                    </div>
+                    {%endfor%}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

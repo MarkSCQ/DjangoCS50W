@@ -1,0 +1,70 @@
+{% extends "auctions/layout.html" %}
+{% load static %}
+{% block content %}
+
+{% if msg %}
+<script>alert("{{msg}}")</script>
+{%endif%}
+
+<!-- 
+{% if pr %}
+{{pr}}
+{%endif%} -->
+
+
+<!-- {% if current_bid_max %}
+{{current_bid_max}}
+{%endif%}
+
+{% if current_bid %}
+{{current_bid}}
+{%endif%} -->
+
+
+{% if current_bids %}
+<div class="container">
+    <h2 class='title is-3'>Bid!</h2>
+
+    <div class="talbe-container">
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth
+">
+            <tr>
+                <th>
+                    Bid User
+                </th>
+                <th>
+                    Bid Price
+                </th>
+            </tr>
+            {%for i in current_bids%}
+            <tr>
+                <th>
+                    {{i.bid_user}}
+                </th>
+                <th>
+                    {{i.bid_price}}
+                </th>
+            </tr>
+            {%endfor%}
+        </table>
+    </div>
+
+    <form action="{% url 'biditem' %}" method="POST">
+        <div class="field">
+            <div class="control">
+                {% csrf_token %}
+                <input type="hidden" name="auction_item" value="{{itemname}}">
+            </div>
+        </div>
+        <div class="field">
+            <div class="control">
+                <input class="input is-large" type="text" name="price" placeholder="Price">
+            </div>
+        </div>
+        <input class="btn btn-primary" type="submit" value="BID">
+
+    </form>
+</div>
+
+{%endif%}
+{% endblock %}

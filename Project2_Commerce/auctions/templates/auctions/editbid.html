@@ -1,0 +1,101 @@
+{% extends "auctions/layout.html" %}
+{% load static %}
+{% block content %}
+
+
+{% if msg %}
+<script>alert("{{msg}}")</script>
+{%endif%}
+
+
+
+
+<!-- {% if itemname %}
+{{itemname}}
+{%endif%} -->
+
+<!-- 
+{% if front_price %}
+{{front_price}}
+{%endif%} -->
+
+
+
+{% if current_bid_own %}
+<div class="container">
+    <div class="content">
+        <h1>Edit Bid</h1>
+    </div>
+
+    <div class="content is-size-5">
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+            <tr>
+                <th>Bid Own</th>
+                <th>Bid Price</th>
+            </tr>
+            {%for i in current_bid_own%}
+            <tr>
+                <th>
+                    {{i.bid_item.item_name}}
+                </th>
+                <th>
+                    {{i.bid_price}}
+                </th>
+            </tr>
+            {%endfor%}
+        </table>
+        <form action="{%url 'bidprice'%}" method="POST">
+            {% csrf_token %}
+            <label for="cars">Choose a bid item:</label>
+            <select name="biditem" id="biditem">
+                {%for i in current_bid_own%}
+                <option value="{{i.bid_item.item_name}}">{{i.bid_item.item_name}}</option>
+                {%endfor%}
+            </select>
+            <input type="text" name="newbidprice">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <div class="content">
+        <h1>Delete Bid</h1>
+    </div>
+    {% ifequal watchflag "currentnotwatching" %}
+    <script>alert('{{msg}}')</script>
+    {% endifequal %}
+
+    <div class="content is-size-5">
+        <form action="{%url 'biddelete'%}" method="POST">
+            {% csrf_token %}
+            <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                <tr>
+                    <th>Bid Own</th>
+                    <th>Bid Price</th>
+                </tr>
+                {%for i in current_bid_own%}
+                <tr>
+                    <th>
+                        <input type="checkbox" id="checkbox_2" name="checkbox_bid_delete"
+                            value="{{i.bid_item.item_name}}">
+                        <label for="bid_item">
+                            {{i.bid_item.item_name}}
+                        </label>
+                    </th>
+                    <th>
+                        {{i.bid_price}}
+                    </th>
+                </tr>
+                {%endfor%}
+            </table>
+            <input type="submit" value="Delete">
+        </form>
+    </div>
+
+
+    {% else %}
+    <div class="content is-size-5">
+        <h1>No watching items</h1>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

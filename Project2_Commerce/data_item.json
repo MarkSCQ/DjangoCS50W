@@ -1,0 +1,191 @@
+[
+  {
+    "model": "auctions.item_info",
+    "pk": 1,
+    "fields": {
+      "item_name": "American Truck Simulator",
+      "item_description": "Experience legendary American trucks and deliver various cargoes across sunny California, sandy Nevada, and the Grand Canyon State of Arizona. American Truck Simulator takes you on a journey through the breathtaking landscapes and widely recognized landmarks around the States.",
+      "item_origin_price": 25
+    }
+  },
+  {
+    "model": "auctions.item_info",
+    "pk": 2,
+    "fields": {
+      "item_name": "DARK SOULS™ III",
+      "item_description": "Dark Souls continues to push the boundaries with the latest, ambitious chapter in the critically-acclaimed and genre-defining series. Prepare yourself and Embrace The Darkness!",
+      "item_origin_price": 25
+    }
+  },
+  {
+    "model": "auctions.item_info",
+    "pk": 3,
+    "fields": {
+      "item_name": "PLAYERUNKNOWN'S BATTLEGROUNDS",
+      "item_description": "PLAYERUNKNOWN'S BATTLEGROUNDS is a battle royale shooter that pits 100 players against each other in a struggle for survival. Gather supplies and outwit your opponents to become the last person standing.",
+      "item_origin_price": 25
+    }
+  },
+  {
+    "model": "auctions.item_info",
+    "pk": 4,
+    "fields": {
+      "item_name": "Grand Theft Auto V",
+      "item_description": "Grand Theft Auto V for PC offers players the option to explore the award-winning world of Los Santos and Blaine County in resolutions of up to 4k and beyond, as well as the chance to experience the game running at 60 frames per second.",
+      "item_origin_price": 25
+    }
+  },
+  {
+    "model": "auctions.item_info",
+    "pk": 5,
+    "fields": {
+      "item_name": "Risk of Rain 2",
+      "item_description": "Escape a chaotic alien planet by fighting through hordes of frenzied monsters – with your friends, or on your own. Combine loot in surprising ways and master each character until you become the havoc you feared upon your first crash landing.",
+      "item_origin_price": 25
+    }
+  },
+  {
+    "model": "auctions.item_info",
+    "pk": 6,
+    "fields": {
+      "item_name": "This War of Mine",
+      "item_description": "In This War Of Mine you do not play as an elite soldier, rather a group of civilians trying to survive in a besieged city; struggling with lack of food, medicine and constant danger from snipers and hostile scavengers. The game provides an experience of war seen from an entirely new angle.",
+      "item_origin_price": 25
+    }
+  },
+  {
+    "model": "auctions.item_info",
+    "pk": 7,
+    "fields": {
+      "item_name": "Twilight Struggle",
+      "item_description": "Twilight Struggle is a two-player game where players play as either the US or USSR during the Cold War. Using actual events from history, players must plan out their strategies in order to obtain world dominance. Play Twilight Struggle and change the course of history.",
+      "item_origin_price": 25
+    }
+  },
+  {
+    "model": "auctions.item_info",
+    "pk": 8,
+    "fields": {
+      "item_name": "War Thunder",
+      "item_description": "War Thunder is the most comprehensive free-to-play, cross-platform, MMO military game dedicated to aviation, armoured vehicles, and naval craft from World War II and the Cold War. Join now and take part in major battles on land, in the air, and at sea, fighting with millions of players from all over the world in an ever-evolving...",
+      "item_origin_price": 25
+    }
+  },
+  {
+    "model": "auctions.item_info",
+    "pk": 9,
+    "fields": {
+      "item_name": "The Witcher® 3: Wild Hunt",
+      "item_description": "As war rages on throughout the Northern Realms, you take on the greatest contract of your life — tracking down the Child of Prophecy, a living weapon that can alter the shape of the world.",
+      "item_origin_price": 25
+    }
+  },
+  {
+    "model": "auctions.item_info",
+    "pk": 10,
+    "fields": {
+      "item_name": "Sid Meier’s Civilization® VI",
+      "item_description": "Civilization VI offers new ways to interact with your world, expand your empire across the map, advance your culture, and compete against history’s greatest leaders to build a civilization that will stand the test of time. Play as one of 20 historical leaders including Roosevelt (America) and Victoria (England).",
+      "item_origin_price": 25
+    }
+  },
+  {
+    "model": "auctions.item_info",
+    "pk": 11,
+    "fields": {
+      "item_name": "A Plague Tale: Innocence",
+      "item_description": "Follow the grim tale of young Amicia and her little brother Hugo, in a heartrending journey through the darkest hours of history.",
+      "item_origin_price": 25
+    }
+  },
+  {
+    "model": "auctions.item_info",
+    "pk": 12,
+    "fields": {
+      "item_name": "Human: Fall Flat",
+      "item_description": "Human: Fall Flat is a hilarious, light-hearted platformer set in floating dreamscapes that can be played solo or with up to 8 players online. Free new levels keep its vibrant community rewarded.",
+      "item_origin_price": 25
+    }
+  },
+  {
+    "model": "auctions.item_info",
+    "pk": 13,
+    "fields": {
+      "item_name": "Hellblade: Senua's Sacrifice",
+      "item_description": "From the makers of Heavenly Sword, Enslaved: Odyssey to the West, and DmC: Devil May Cry, comes a warrior’s brutal journey into myth and madness. Set in the Viking age, a broken Celtic warrior embarks on a haunting vision quest into Viking Hell to fight for the soul of her dead lover.",
+      "item_origin_price": 25
+    }
+  },
+  {
+    "model": "auctions.item_info",
+    "pk": 14,
+    "fields": {
+      "item_name": "Portal 2",
+      "item_description": "The \"Perpetual Testing Initiative\" has been expanded to allow you to design co-op puzzles for you and your friends!",
+      "item_origin_price": 25
+    }
+  },
+  {
+    "model": "auctions.item_info",
+    "pk": 15,
+    "fields": {
+      "item_name": "Heroes & Generals",
+      "item_description": "Shoot, blow sh!t up, fly or bark orders in the ultimate Free-to-Play, large scale, multiplayer, shooter experience. Thousands of players in multiple battles fighting one massive war of nations. The first to capture 15 cities takes the glory.",
+      "item_origin_price": 25
+    }
+  },
+  {
+    "model": "auctions.item_info",
+    "pk": 16,
+    "fields": {
+      "item_name": "Kingdom Come: Deliverance",
+      "item_description": "Kingdom Come: Deliverance is a story-driven open-world RPG that immerses you in an epic adventure in the Holy Roman Empire. Avenge your parents' death as you battle invading forces, go on game-changing quests, and make influential choices.",
+      "item_origin_price": 25
+    }
+  },
+  {
+    "model": "auctions.item_info",
+    "pk": 17,
+    "fields": {
+      "item_name": "Rise of the Tomb Raider™",
+      "item_description": "Rise of the Tomb Raider: 20 Year Celebration includes the base game and Season Pass featuring all-new content. Explore Croft Manor in the new “Blood Ties” story, then defend it against a zombie invasion in “Lara’s Nightmare”.",
+      "item_origin_price": 25
+    }
+  },
+  {
+    "model": "auctions.item_info",
+    "pk": 18,
+    "fields": {
+      "item_name": "Sid Meier's Civilization® V",
+      "item_description": "Create, discover, and download new player-created maps, scenarios, interfaces, and more!",
+      "item_origin_price": 25
+    }
+  },
+  {
+    "model": "auctions.item_info",
+    "pk": 19,
+    "fields": {
+      "item_name": "UBOAT",
+      "item_description": "UBOAT is a simulator of a submarine from WWII era. It is a survival sandbox with crew management mechanics while its primary theme is life of German sailors. The boat is their home, but it can become their grave at any time.",
+      "item_origin_price": 25
+    }
+  },
+  {
+    "model": "auctions.item_info",
+    "pk": 20,
+    "fields": {
+      "item_name": "Silent Hunter®: Wolves of the Pacific",
+      "item_description": "Hunt, hide and kill as you take command of U.S. submarines and crews and navigate the treacherous waters of the Pacific during WWII. Silent Hunter, the industry-leading naval warfare simulation franchise for over a decade, returns to its roots with next-generation graphical realism, immersive gameplay, ",
+      "item_origin_price": 25
+    }
+  },
+  {
+    "model": "auctions.item_info",
+    "pk": 21,
+    "fields": {
+      "item_name": "NieR:Automata™",
+      "item_description": "NieR: Automata tells the story of androids 2B, 9S and A2 and their battle to reclaim the machine-driven dystopia overrun by powerful machines.",
+      "item_origin_price": 25
+    }
+  }
+]

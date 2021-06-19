@@ -1,0 +1,12 @@
+{% extends "encyclopedia/layout.html" %}
+{% block body %}
+{{message}}
+<ul style="list-style-type:none">
+    {% for entry in existedfile %}
+    <li><a href="{% url 'wiki:wikititle' entry %}">{{entry}}</a></li>
+    {% endfor %}
+</ul>
+
+<a href="http://127.0.0.1:8000/" style="position: absolute;bottom: 5%;">Back</a>
+
+{% endblock %}

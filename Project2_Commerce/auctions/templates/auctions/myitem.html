@@ -1,0 +1,72 @@
+<!-- <!DOCTYPE html>
+
+<html>
+    <head>
+        <title>My Item</title>
+    </head>
+
+    <body>
+      
+    </body>
+
+</html>
+ -->
+
+{% extends "auctions/layout.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <h2 class='title is-3'>My Items</h2>
+    <div class="talbe-container">
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+            <tr>
+                <th>Item Name</th>
+                <th>Item Category</th>
+                <th>Item Origin Price</th>
+            </tr>
+            {%for i in my_items%}
+            <tr>
+                <th>{{i.item_name}}</th>
+                <th>{{i.item_category}}</th>
+                <th>{{i.item_origin_price}}</th>
+            </tr>
+            {%endfor%}
+
+        </table>
+    </div>
+    <h2 class='title is-3'>My Auctions</h2>
+    <div class="talbe-container">
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+
+            <tr>
+                <th>Auction Item</th>
+                <th>Auction Current Highest</th>
+                <th>Auction Highest User</th>
+                <th>I WANT IT</th>
+            </tr>
+            {%for i in maxdic%}
+            <tr>
+                <th>{{i.0}}</th>
+                <th>{{i.1}}</th>
+                <th> {{i.2}} </th>
+                <th>
+                    <form action="{% url 'wantit' %}" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="itemname" value="{{i.0}}">
+                        <input type="hidden" name="currbiduname" value="{{i.2}}">
+                        <input type="submit" name="WANT" value="WANT">
+                    </form>
+                </th>
+            </tr>
+            {%endfor%}
+
+        </table>
+
+
+    </div>
+
+
+
+</div>
+{% endblock %}

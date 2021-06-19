@@ -1,0 +1,89 @@
+{% extends "onlinetest/layout.html" %}
+
+{% load static %}
+
+{% block content %}
+<div class="container">
+
+    <hr>
+    <div class="">
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="http://localhost:8000/">
+                    <img src="https://cdn.freebiesupply.com/logos/large/2x/bootstrap-5-logo-png-transparent.png"
+                        width="112" height="28">
+                </a>
+
+                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+                    data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+
+        </nav>
+        <div class="notification">
+        </div>
+        <div class="hero">
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                    <div class="columns is-centered">
+                        <div class="box">
+                            <div class="box">
+                                <img src="https://miro.medium.com/max/640/0*_rAD9NgK7l6KSlNc.png">
+                            </div>
+
+                            <form action="{% url 'login' %}" method="post">
+                                <div class="field">
+                                    <div class="control">
+                                        {% csrf_token %}
+                                        <input autofocus class="form-control" type="text" name="idcode"
+                                            placeholder="ID Code">
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="control">
+                                        <input class="form-control" type="password" name="password"
+                                            placeholder="Password">
+                                    </div>
+                                </div>
+                                <!-- 
+                                <div class="has-text-centered">
+                                    <table class="table center">
+                                        <tr>
+                                            <th class="has-text-centered">
+                                                <label class="radio">
+                                                    <input type="radio" id="student" name="identity" value="student"
+                                                        required="required" style="width: 1.1em;height: 1.1em;">
+                                                </label>
+                                                <label for="student" class="is-size-4">Student</label>
+                                            </th>
+                                            <th class="has-text-centered">
+                                                <label class="radio">
+                                                    <input type="radio" id="teacher" name="identity" value="teacher"
+                                                        required="required" style="width: 1.1em;height: 1.1em;">
+                                                </label>
+                                                <label for="teacher" class="is-size-4">Teacher</label>
+                                            </th>
+                                        </tr>
+
+                                    </table> -->
+
+
+                        </div>
+                        <input type="hidden" id="student" name="identity" value="student">
+                        <input class="btn btn-primary" type="submit" value="Login">
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+{% endblock %}

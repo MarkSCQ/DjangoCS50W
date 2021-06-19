@@ -1,0 +1,59 @@
+{% extends "onlinetest/layout.html" %}
+{% load static %}
+
+{% block content %}
+<div class="form-check" style="width: 95%;margin: auto;">
+
+
+    <h1>
+        Generate Random Test
+    </h1>
+    <hr>
+    <br>
+    <form action="{% url 'GenerateNewTestSave'%}" method="POST">
+        {% csrf_token %}
+        <div>
+            <p class="fs-4">Subject Select:</p>
+            <select name="subjects" id="subjects" class="form-select" style="width: max-content;" required>
+                <option value="">--Select One Subject--</option>
+                {%for i in sub_list%}
+                <option value="{{i}}">{{i}}</option>
+                {%endfor%}
+            </select>
+            <br>
+            {%for i in sub_test%}
+            <div name="testnamediv" id="{{i}}" class="subselect" style="display: none;">
+                <p class="fs-4">Test Select:</p>
+                <select id="testname-{{i}}" name="testname-{{i}}" class="form-select" style="width:max-content;">
+                    <option value="">--Select One Test--</option>
+                    {% for tn in sub_test|keys:i%}
+                    <option value="{{tn}}">{{tn}}</option>
+                    {%endfor%}
+                </select>
+            </div>
+
+            {%endfor%}
+            <br>
+
+            <p class="fs-4">Number of Questions</p>
+            <input name="numques" type="range" value="" min="1" max="10" class="form-range" style="width: 150px;"
+                oninput="this.nextElementSibling.value = this.value">
+            <output>6</output>
+
+            <p class="fs-4">Time Settings:</p>
+            <input name="numtime" type="range" value="" min="1" max="60" class="form-range" style="width: 150px;"
+                oninput="this.nextElementSibling.value = this.value">
+            <output>30</output>
+        </div>
+        <input type="hidden" value="{{message}}" name="idcode">
+        <input class="btn btn-primary" type="submit" value="Submit">
+    </form>
+    <br>
+    <br>
+
+    <a href="{% url 'BackToMain' message%}">Back to Main</a> <br>
+    <br>
+    <br>
+    <script src="{% static 'onlinetest/generatenewtest.js' %}" type="text/javascript"></script>
+</div>
+{% endblock %}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        sb html
+        <script>
+
+        </script>
+    </title>
+</head>
+
+<body>
+    <table border="1px" style="border-collapse: collapse;">
+        <tr>
+            <td colspan="2">
+                331
+            </td>
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+        </tr>
+
+
+    </table>
+    <div id="modify_post" style="display: none;">
+        <form id="modify_post_form">
+            <textarea id="modify_post_content" style="width: 600px; height:100px"></textarea>
+            <input type="hidden" id="modify_post_ID">
+            <input type="submit" id="modify_post_submit" value="POST!">
+        </form>
+    </div>
+    <button id="btn" style="background-color:hotpink;" onclick="fuckyou()"> cao ni ma !</button>
+    <script>
+        function fuckyou() {
+            if (document.getElementById("btn").style.backgroundColor == "hotpink") {
+                document.getElementById("btn").style.backgroundColor = "Blue";
+
+            }
+            else {
+                document.getElementById("btn").style.backgroundColor = "hotpink";
+
+            }
+        } 
+    </script>
+</body>
+
+</html>

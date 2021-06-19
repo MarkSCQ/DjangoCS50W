@@ -1,0 +1,92 @@
+{% extends "auctions/layout.html" %}
+
+
+
+{% block content %}
+<!-- <a href="auctions/createnewitem.html">create item</a> -->
+<!-- <a href="{url }">create bid</a> -->
+<!-- when create auction, create a basic bid with base price -->
+
+
+<div class='container'>
+    <div>
+        <h2 class='title is-3'>Creations</h2>
+    </div>
+    <div class='columns is-mobile is-centered'>
+        <div class='column is-11'>
+            <div class='list'>
+                <ul>
+                    <div class='list-item'>
+                        <li>
+                            <h2 class='title is-4'><a href="{%url 'createnewitem' %} ">Create item</a></h2>
+                        </li>
+                    </div>
+                    <br>
+                    <div class='list-item'>
+                        <li>
+                            <h2 class='title is-4'><a href="{%url 'createnewbidauction' %} ">Create auction</a></h2>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h2 class='title is-3'>My Bids</h2>
+        <!-- display all bids and is able to delete or edit-->
+        <div class='columns is-mobile is-centered'>
+            <div class='column is-11'>
+                <div class='list'>
+                    <ul>
+                        <div class='list-item'>
+                            <li>
+                                <h2 class='title is-4'><a href="{%url 'editbid' %} ">Edit My Bid</a></h2>
+                            </li>
+                        </div>
+                        <br>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div> -->
+        <!-- <h2 class='title is-3'>My Auctions</h2> -->
+        <!-- display all auctions owned and is able to delete or edit-->
+    <!-- </div> -->
+    <!-- <div class='columns is-mobile is-centered'>
+        <div class='column is-11'>
+            <div class='list'>
+                <ul>
+                    <div class='list-item'>
+                        <li> -->
+                            <!-- <h2 class='title is-4'><a href="{%url 'editauction' %} ">View and Execute</a></h2> -->
+                        <!-- </li>
+                    </div>
+                    <br>
+                </ul>
+            </div>
+        </div>
+    </div> -->
+
+    <div>
+        <h2 class='title is-3'>My Items</h2>
+        <!-- display all auctions owned and is able to delete or edit-->
+    </div>
+    <div class='columns is-mobile is-centered'>
+        <div class='column is-11'>
+            <div class='list'>
+                <ul>
+                    <div class='list-item'>
+                        <li>
+                            <h2 class='title is-4'><a href="{%url 'myitems' %} ">View and Execute</a></h2>
+                        </li>
+                    </div>
+                    <br>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% if message %}
+{% endif%}
+{% endblock %}

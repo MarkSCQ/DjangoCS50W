@@ -1,0 +1,50 @@
+{% extends "onlinetest/layout.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+<div name="available_tests" style="width: 90%;margin: auto;">
+
+    <h1>
+        <b>Test</b>
+
+    </h1>
+    <hr>
+
+    <br>
+    <h3><b>Login as {{idcode}}</b></h3>
+
+    <br>
+
+    <!-- <a href="{{request.META.HTTP_REFERER}}">Go back</a> -->
+
+
+
+    {% for i in all_test_ids%}
+    <div class="media position-relative" style="width: 40rem;">
+        <img src="{{test_logos|keys:i}}" class="card-img-top" style="width: 18rem;" alt="...">
+
+        <div class="media-body">
+            <h5 class="mt-0">{{all_test_ids_dic|keys:i}}</h5>
+            <p class="card-text">
+                {{test_desc|keys:i}}
+            </p>
+            <button name="testbutton" type="button" class="btn btn-outline-primary setclick"
+                value="{{clickable_dict|keys:i}}" id="{{i}}"><a
+                    href="{% url 'StudentOneTest' testid=i idcode=idcode %}">Test!</a></button>
+        </div>
+    </div>
+
+    {% endfor %}
+    <br>
+
+    <a href="{% url 'BackToMain' idcode%}">Back to Main</a> <br>
+
+</div>
+<br>
+
+<hr>
+
+{% endblock %}

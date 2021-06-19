@@ -1,0 +1,24 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block body %}
+<h1>Search Results</h1>
+
+{% if type == 1 %}
+<!-- {{type}} -->
+{{entries|safe}}
+<a href="{% url 'wiki:wikititle' entryname %}">{{entryname}}</a>
+{% elif type == 2 %}
+<!-- {{type}} -->
+<ul style="list-style-type:none">
+    {% for entry in entries %}
+    <li><a href="{% url 'wiki:wikititle' entry %}">{{entry}}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+{{entries|safe}}
+{% endif %}
+
+
+<a href="http://127.0.0.1:8000/" style="position: absolute;bottom: 5%;">Back</a>
+
+{% endblock %}

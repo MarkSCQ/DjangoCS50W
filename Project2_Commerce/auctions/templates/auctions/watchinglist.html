@@ -1,0 +1,79 @@
+{% extends "auctions/layout.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="content">
+        <h1>
+            Add auction into my watching list
+        </h1>
+    </div>
+    {% if data_all %}
+    <div class="content is-size-5">
+        <form action="{%url 'addWatchinglist'%}" method="POST">
+            {% csrf_token %}
+
+            <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                <tr>
+                    <th>All Auction</th>
+                    <th>Auction State</th>
+                </tr>
+                {%for i in data_all%}
+                <tr>
+                    <th><input type="checkbox" id="checkbox_1" name="checkbox_add" value="{{i.auction_item}}">
+                        <label for="auction_item">
+                            <a href="{% url 'watchinglistsub' i.auction_item %}">{{i.auction_item}}</a>
+                        </label>
+                    </th>
+                    <th>
+                        {{i.get_auction_state_display}}
+                    </th>
+                </tr>
+                {%endfor%}
+            </table>
+            <input type="submit" value="Add">
+        </form>
+    </div>
+    {% endif %}
+    <div class="content">
+        <h1>
+            Delete auction from my watching list
+        </h1>
+    </div>
+    {% if data_watching %}
+    <div class="content is-size-5"> 
+        <form action="{%url 'deleteWatchinglist'%}" method="POST">
+            {% csrf_token %}
+            <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                <tr>
+                    <th>Auction Item Watched</th>
+                    <th>Auction State</th>
+                </tr>
+                {%for i in data_watching%}
+                <tr>
+                    <th>
+                        <input type="checkbox" id="checkbox_2" name="checkbox_delete" value="{{i.auction_item}}">
+                        <label for="auction_item">
+                            <a href="{% url 'watchinglistsub' i.auction_item %}">{{i.auction_item}}</a>
+                        </label>
+                    </th>
+                    <th>
+                        {{i.get_auction_state_display}}
+                    </th>
+                </tr>
+                {%endfor%}
+            </table>
+            <input type="submit" value="Delete">
+        </form>
+    </div>
+    {% else %}
+    <div class="content is-size-5">
+        <h1>No watching items</h1>
+    </div>
+    {% endif %}
+</div>
+
+{%if duplicate_alert%}
+<script>alert("{{duplicate_list}}")</script>
+{%endif%}
+
+{% endblock %}

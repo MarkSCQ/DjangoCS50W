@@ -1,0 +1,121 @@
+{% extends "onlinetest/layout.html" %}
+
+{% load static %}
+
+{% block content %}
+<div style="width: 90%;margin: auto;">
+    <h1>
+        <b>Review and Explanation</b>
+    </h1>
+    <hr>
+
+    <br>
+    <h3>
+        <b>Login as {{idcode}}</b>
+    </h3>
+    <br>
+    <h4><b>Previous Tests</b></h4>
+
+    <div class="desktoptable">
+        <table class="table table-primary">
+            <tr>
+                <th>
+                    Test Name
+                </th>
+                <th>
+                    My ID
+                </th>
+                <th>
+                    Grade
+                </th>
+                <th>
+                    Status
+                </th>
+                <th>
+                    Finished Date
+                </th>
+            </tr>
+            {% for record in student_grade_storted%}
+            <tr>
+                <td>
+                    <a href="{% url 'ReviewTestDetails' message=record.1 testname=record.0 gradeid=record.5%}">
+                        {{record.0}}
+                    </a>
+                </td>
+                <td>
+                    {{record.1}}
+                </td>
+                <td>
+                    {{record.2}}
+                </td>
+                <td>
+                    {{record.3}}
+                </td>
+                <td>
+                    {{record.4}}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="mobletable">
+
+        <table class="table table-primary">
+
+            {% for record in student_grade_storted%}
+            <tr>
+                <td>
+                    Test Name
+                </td>
+                <td>
+                    <a href="{% url 'ReviewTestDetails' message=record.1 testname=record.0 gradeid=record.5%}">
+                        {{record.0}}
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    My ID
+                </td>
+                <td>
+                    {{record.1}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Grade
+                </td>
+
+                <td>
+                    {{record.2}}
+                </td>
+            </tr>
+            <tr>
+                <td> Status
+                </td>
+
+                <td>
+                    {{record.3}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Finished Date
+
+                </td>
+
+                <td>
+                    {{record.4}}
+                </td>
+
+            </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+    <a href="{% url 'BackToMain' idcode%}">Back to Main</a> <br>
+
+</div>
+
+
+{% endblock %}

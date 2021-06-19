@@ -1,0 +1,58 @@
+[
+  {
+    "model": "auctions.category",
+    "pk": 1,
+    "fields": {
+      "category_item": "Action",
+      "category_description": "Action games emphasize physical challenges that require hand-eye coordination and motor skill to overcome. They center around the player, who is in control of most of the action. Most of the earliest video games were considered action games; today, it is still a vast genre covering all games that involve physical challenges. Action games are classified by many subgenres. Platform games and fighting games are among the best-known subgenres, while shooter games became and continue to be one of the dominant genres in video gaming since the 1990s. Action games usually involve elements of twitch gameplay."
+    }
+  },
+  {
+    "model": "auctions.category",
+    "pk": 2,
+    "fields": {
+      "category_item": "Action-adventure",
+      "category_description": "Action-adventure games combine elements of their two component genres, typically featuring long-term obstacles that must be overcome using a tool or item as leverage (which is collected earlier), as well as many smaller obstacles almost constantly in the way, that require elements of action games to overcome. Action-adventure games tend to focus on exploration and usually involve item gathering, simple puzzle solving, and combat. \"Action-adventure\" has become a label which is sometimes attached to games which do not fit neatly into another well known genre. Because of their prevalence on video game consoles and the absence of typical adventure games, action-adventure games are often called \"adventure games\" by modern gamers."
+    }
+  },
+  {
+    "model": "auctions.category",
+    "pk": 3,
+    "fields": {
+      "category_item": "Adventure",
+      "category_description": "Adventure games were some of the earliest games created, beginning with the text adventure Colossal Cave Adventure in the 1970s. That game was originally titled simply \"Adventure,\" and is the namesake of the genre. Over time, graphics have been introduced to the genre and the interface has evolved."
+    }
+  },
+   {
+    "model": "auctions.category",
+    "pk": 4,
+    "fields": {
+      "category_item": "Role-playing",
+      "category_description": "Role-playing video games draw their gameplay from traditional tabletop role-playing games like Dungeons & Dragons. Most of these games cast the player in the role of a weak character that grows in strength and experience over the course of the game. By overcoming difficult challenges and/or defeating monsters, the player gains experience points which represent the character's progress in a chosen profession or class (such as melee combat or ranged magic spells) and allow the player to gain new abilities once a set amount are obtained. Many RPGs contain an open world known as an overworld, which is usually populated with monsters, that allows access to more important game locations, such as towns, dungeons, and castles. Since the emergence of affordable home computers coincided with the popularity of paper and pencil role-playing games, this genre was one of the first in video games and continues to be popular today. Gameplay elements strongly associated with RPG, such as statistical character development through the acquisition of experience points, have been widely adapted to other genres such as action-adventure games. Though nearly all of the early entries in the genre were turn-based games, many modern role-playing games progress in real-time. Thus, the genre has followed the strategy game's trend of moving from turn-based to real-time combat. The move to real-time combat began with the release of Square's (now Square Enix's) Final Fantasy IV, the first game to use the Active Time Battle system; this was quickly followed by truly real-time action role-playing games such as the Mana series, Soul Blazer and Ultima VII. Although older turn-based system still exist, such as the Golden Sun series for Game Boy Advance as well as Pokémon."
+    }
+  },
+  {
+    "model": "auctions.category",
+    "pk": 5,
+    "fields": {
+      "category_item": "Simulation",
+      "category_description": "Simulation video games is a diverse super-category of games, generally designed to closely simulate aspects of a real or fictional reality."
+    }
+  },
+  {
+    "model": "auctions.category",
+    "pk": 6,
+    "fields": {
+      "category_item": "Strategy",
+      "category_description": "Strategy video games focus on gameplay requiring careful and skillful thinking and planning in order to achieve victory and the action scales from world domination to squad-based tactics. “In most strategy video games,” says Andrew Rollings, \"the player is given a godlike view of the game world, indirectly controlling the units under his command.\" Rollings also notes that \"The origin of strategy games is rooted in their close cousins, board games.\" Strategy video games generally take one of four archetypal forms, depending on whether the game is turn-based or real-time and whether the game's focus is upon strategy or tactics. Real time strategy games are often a multiple unit selection game (multiple game characters can be selected at once to perform different tasks, as opposed to only selecting one character at a time) with a sky view (view looking down from above) but some recent games such as Tom Clancy's EndWar, are single unit selection and third person view. Like many RPG games, many strategy games are gradually moving away from turn-based systems to more real-time systems."
+    }
+  },
+  {
+    "model": "auctions.category",
+    "pk": 7,
+    "fields": {
+      "category_item": "Sports",
+      "category_description": "Sports are video games that simulate sports. This opposing team(s) can be controlled by other real life people or artificial intelligence."
+    }
+  }
+]

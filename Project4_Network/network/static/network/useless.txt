@@ -1,0 +1,103 @@
+// function maketablePOSTS(ta, btn) {
+//     var tbdy = document.createElement('table');
+
+//     var tr1 = document.createElement('tr');
+//     var td1_1 = document.createElement('td');
+//     td1_1.innerHTML = ta;
+
+//     var tr2 = document.createElement('tr');
+//     var td2_1 = document.createElement('td');
+//     td2_1.innerHTML = btn;
+
+//     tr1.appendChild(td1_1)
+//     tr2.appendChild(td2_1)
+
+//     tbdy.appendChild(tr1);
+//     tbdy.appendChild(tr2);
+
+//     return tbdy;
+// }
+
+function textarea(divID, divState) {
+    console.log(divID)
+    console.log(divState)
+
+    if (divState == true) {
+        // then display the shit
+        document.getElementById(divID).style.display = 'block';
+        document.getElementById("make_post_content").innerHTML = '';
+
+
+        var today = new Date();
+        var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var dateTime = date + ' ' + time;
+
+        console.log(dateTime);
+
+        var postArea = document.createElement("textarea");
+        postArea.style.width = "600px";
+        postArea.style.height = "100px";
+        postArea.placeholder = "This is Fakebook";
+
+
+        var postButton = document.createElement("button");
+        postButton.innerHTML = "POST!";
+
+
+        var tbdy = document.createElement('table');
+        tbdy.style.border = "1px";
+        tbdy.style.borderCollapse = "collapse";
+        var tr1 = document.createElement('tr');
+        var td1_1 = document.createElement('td');
+        td1_1.style.width = "600px";
+        td1_1.colSpan = "2";
+        td1_1.appendChild(postArea);
+
+        var tr2 = document.createElement('tr');
+        tr2.style.width = "600px";
+
+        var td2_1 = document.createElement('td');
+        td2_1.style.textAlign = "right";
+        td2_1.appendChild(postButton);
+
+        var td2_2 = document.createElement('td');
+        td2_2.style.textAlign = "left";
+        td2_2.innerHTML = dateTime;
+        td2_2.style.width = "300px";
+        tr1.appendChild(td1_1);
+        tr2.appendChild(td2_2);
+
+        tr2.appendChild(td2_1);
+        tbdy.appendChild(tr1);
+        tbdy.appendChild(tr2);
+
+        var divTbdyHolder = document.createElement("div");
+        divTbdyHolder.style.position = "absolute";
+        divTbdyHolder.style.left = "100px";
+        divTbdyHolder.appendChild(tbdy);
+        document.getElementById("make_post_content").appendChild(divTbdyHolder);
+
+    }
+    else {
+        // dont display the shit
+        document.getElementById(divID).style.display = 'none'
+    }
+    document.getElementById(divID).style.textAlign = "center";
+}
+
+function getProfile(curr_user) {
+    // get profile through current user
+}
+
+
+// make a stupid function listen to the click event in index page
+
+
+
+    // var td3 = document.createElement("td");
+    // var btnlike = document.createElement("button");
+    // btnlike.value = post_id;
+    // btnlike.innerHTML = "LIKE!";
+    // td3.appendChild(btnlike);
+    // tr3.appendChild(td3);

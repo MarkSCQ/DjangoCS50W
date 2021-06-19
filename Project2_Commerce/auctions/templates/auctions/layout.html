@@ -1,0 +1,174 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{% block title %}Auctions{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <link href="{% static 'auctions/styles.css' %}" rel="stylesheet">
+    <link href="{% static 'auctions/bulma.css' %}" rel="stylesheet">
+    <style>
+        .table__wrapper {
+            overflow-x: auto;
+        }
+
+        #ActiveListingTable,
+        #ActiveListingTable_Col,
+        #ActiveListDetails,
+        #ActiveListDetails_Col {
+            border: 1px solid black;
+        }
+
+        #ActiveListingTable_Row_A {
+            text-align: center;
+        }
+
+        #ActiveListingTable_Rows {
+            text-align: center;
+        }
+
+
+        #ActiveListDetails_Row {
+            text-align: center;
+            border: 1px solid black;
+        }
+
+        #ActiveListDetails_Col {
+            text-align: center;
+        }
+
+        .inline-block {
+            display: inline-block;
+        }
+
+        .myBox {
+            border: none;
+            padding: 5px;
+            font: 24px/36px sans-serif;
+            width: 500px;
+            height: 200px;
+            overflow: scroll;
+        }
+
+        /* Scrollbar styles */
+        ::-webkit-scrollbar {
+            width: 12px;
+            height: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            border: 1px solid yellowgreen;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: yellowgreen;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #88ba1c;
+        }
+
+        .errorlist {
+            color: red;
+            list-style: none;
+        }
+
+        div.columns {
+            margin-top: 80px;
+        }
+
+        div.columns {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <hr>
+        <div class="">
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="http://localhost:8000/">
+                        <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+                    </a>
+
+                    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+                        data-target="navbarBasicExample">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+
+                <div id="navbarBasicExample" class="navbar-menu">
+                    <div class="navbar-start">
+                        {% if user.is_authenticated %}
+                        <a class="navbar-item" href="{% url 'index' %}">Active Listings</a>
+
+                        <a class="navbar-item" href="{% url 'logout' %}">Log Out</a>
+                        <a class="navbar-item" href="{% url 'categories' %}">Categories</a>
+                        <a class="navbar-item" href="{% url 'mypanel' %}">My Panel</a>
+                        <a class="navbar-item" href="{% url 'watchinglist' %}">Watching List</a>
+                        {% endif %}
+                    </div>
+                </div>
+
+
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            {% if not user.is_authenticated %}
+                            <strong>
+                                <a class="button is-primary" href="{% url 'register' %}">
+                                    Sign up
+                                </a>
+                            </strong>
+
+                            <a class=" button is-light" href="{% url 'login' %}">
+                                Log in
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+            </nav>
+            <div class="notification">
+                {% if user.is_authenticated %}
+                Signed in as <strong>{{ user.username }}</strong>.
+                {% else %}
+                Not signed in.
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    {% block content %}
+    {% endblock %}
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,25 @@
+{% extends "auctions/layout.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <div class="talbe-container">
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth
+">
+            <tr>
+                <th>Bid User</th>
+                <th>Bid Price</th>
+                <th>Bid Date</th>
+            </tr>
+            {%for i in itemname%}
+            <tr>
+                <th>{{i.bid_user}}</th>
+                <th>{{i.bid_price}}</th>
+                <th>{{i.bid_date}}</th>
+            </tr>
+            {%endfor%}
+
+        </table>
+    </div>
+</div>
+{% endblock %}

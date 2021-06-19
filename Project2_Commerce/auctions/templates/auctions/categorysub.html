@@ -1,0 +1,88 @@
+{% extends "auctions/layout.html" %}
+
+{% block content %}
+<!--  this page will display each kind of category -->
+
+<div class="container">
+    <div class="content ">
+        <h2>Auction Details</h2>
+        {% if retval|length == 0 %}
+        <h1>No auction</h1>
+    </div>
+
+    {% else %}
+    <div class="talbe-container">
+        {% for a in retval%}
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth
+">
+            <tr>
+                <th>Auction Item</th>
+                <th>{{a.0.auction_item}}</th>
+            </tr>
+            <tr>
+                <th>Auction ID</th>
+                <th>{{a.0.auction_id}}</th>
+            </tr>
+            <tr ">
+        <th >Auction State</th>
+        <th >{{a.0.get_auction_state_display}}</th>
+
+    </tr>
+    <tr >
+        <th >Bid Amount</th>
+        <th >{{a.0.get_num_bid_info}}</th>
+
+    </tr>
+    <tr >
+        <th >Start Date</th>
+        <th >{{a.0.items_start_date}}</th>
+
+    </tr>
+    <tr >
+        <th >End Date</th>
+        <th >{{a.0.items_end_date}}</th>
+
+    </tr>
+    <tr >
+        <th >Name</th>
+        <th >{{a.1.item_name}}</th>
+    </tr>
+    <tr >
+        <th >Category</th>
+        <th >{{a.1.item_category}}</th>
+    </tr>
+    <tr >
+        <th>Description</th>
+        <th>{{a.1.item_description}}</th>
+        <!-- <th id=" ActiveListDetails_Row"><textarea readonly
+                    style="width: 500px;height:250px;border: none;">{{a.1.item_description}}</textarea>
+                </th> -->
+            </tr>
+            <tr>
+                <th>Origin Price</th>
+                <th>{{a.1.item_origin_price}}</th>
+            </tr>
+
+            <tr>
+                <th>Publisher</th>
+                <th>{{a.1.item_publisher}}</th>
+            </tr>
+
+            <tr>
+                <th>Image</th>
+                <th> <img style=" width: 500px" src=" {{a.1.item_img.url}}"> </th>
+            </tr>
+        </table>
+        <!-- <img style=" width: 500px" src=" {{a.1.item_img.url}}"> -->
+        {% endfor %}
+    </div>
+</div>
+
+<h1>{{len}}</h1>
+
+{% endif %}
+
+
+
+
+{% endblock %}

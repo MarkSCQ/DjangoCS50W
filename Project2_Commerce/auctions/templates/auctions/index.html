@@ -1,0 +1,85 @@
+{% extends "auctions/layout.html" %}
+{% load static %}
+{% block content %}
+<!-- <a href="{% url 'categories' %}">cate</a> -->
+
+<!-- this block is used to get the information from backend that render the active auctions -->
+<!-- <h1 name="activelist">{{activelist}}</h1>
+<h1 name="activelist">{{activelist.auction_state}}</h1> -->
+{% if user.is_authenticated %}
+
+
+{% if signal%}
+{% if signal == 1 %}
+<div class="container">
+    <div class="content">
+        <h3>Active Auction Details</h3>
+    </div>
+    {% for a in activelist %}
+
+
+    <div class="talbe-container">
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth
+">
+            <tr>
+                <th style="width:200px">Auction Item</th>
+                <th>{{a.0.auction_item}}</th>
+            </tr>
+            <tr>
+                <th>Auction State</th>
+                <th>{{a.0.get_auction_state_display}}</th>
+            </tr>
+            <tr>
+                <th>Bid Amount</th>
+                <th>{{a.0.get_num_bid_info}}</th>
+            </tr>
+            <tr>
+                <th>Current Bid MAX</th>
+                <th>{{a.2}}</th>
+            </tr>
+
+            <tr>
+                <th>Origin Price</th>
+                <th>{{a.1.item_origin_price}}</th>
+            </tr>
+            <tr>
+                <th>Image Description</th>
+                <th><img style=" width: 500px" src=" {{a.1.item_img.url}}"></th>
+            </tr>
+
+            <tr>
+                <th> For More Details </th>
+                <th><a href="{% url 'oneacution' a.0.auction_item %}"> {{a.0.auction_item}}</a></th>
+            </tr>
+        </table>
+
+    </div>
+
+
+    <hr>
+    {%endfor%}
+
+
+</div>
+<!-- <h1>LEN {{len}}</h1> -->
+{% else %}
+<h3>WP</h3>
+{% endif%}
+{%else%}
+<h3>not exist</h3>
+{% endif%}
+
+<!-- below function as comment area -->
+<!-- <div class="myBox">
+    Efficient honorificabilitudinitatibus cross-media information without floccinaucinihilipilification cross-media
+    value. Quickly maximize timely deliverables for real-time schemas plenipotentiary.
+</div>
+
+<div class="myBox">
+    Efficient honorificabilitudinitatibus cross-media information without floccinaucinihilipilification cross-media
+    value. Quickly maximize timely deliverables for real-time schemas plenipotentiary.
+</div> -->
+{% endif %}
+
+
+{% endblock %}

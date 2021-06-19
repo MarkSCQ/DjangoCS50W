@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block body %}
+<h1>Content</h1>
+{{ entries|safe}}
+<!-- Title: {{ entryname}} -->
+<form action="{% url 'wiki:editentry' %}" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="entryname" value="{{entryname}}">
+    <input type="submit" value="Edit Entry">
+</form>
+<!-- <ul>
+
+    {% for entry in entries %}
+    <li>{{ entry }}</li>
+    {% endfor %}
+</ul> -->
+<a href="http://127.0.0.1:8000/" style="position: absolute;bottom: 5%;">Back</a>
+{% endblock %}

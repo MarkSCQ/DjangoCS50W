@@ -1,0 +1,60 @@
+{% extends "auctions/layout.html" %}
+{% load static %}
+{% block content %}
+
+<!-- {% if current_auction_own %}
+{{current_auction_own}}
+{%endif%}
+
+{% if auction_max %}
+{{auction_max}}
+{%endif%} -->
+
+
+<div class="container">
+    <div class="content">
+        <h1>Edit Auction</h1>
+    </div>
+
+    {% if auction_max and current_auction_own %}
+    <div class="content is-size-5">
+        <form action="{%url 'executeauction'%}" method="POST">
+            {% csrf_token %}
+            <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                <tr>
+                    <th>Auction Own</th>
+                    <th>Max Price</th>
+                </tr>
+                {%for i in auction_max%}
+                <tr>
+                    <th>
+                        {{i.0.auction_item.item_name}}
+                    </th>
+                    <th>
+                        {{i.1}}
+                    </th>
+                </tr>
+                {%endfor%}
+            </table>
+
+
+            <label for="auction">Choose auction:</label>
+            <select name="auction" id="biditem">
+                {%for i in auction_max%}
+                <option value="{{i.0.auction_item.item_name}}">{{i.0.auction_item.item_name}}</option>
+                {%endfor%}
+            </select>
+            <input type="submit" value="Submit">
+
+        </form>
+    </div>
+
+    {%endif%}
+</div>
+
+
+
+
+
+
+{% endblock %}
